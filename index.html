@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siqi Liu</title>
+  <meta name="description" content="Siqi Liu - U1 Neuroscience undergraduate at McGill University. Computational Neuroscience | Dopaminergic Neural Circuits">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦉</text></svg>">
+
+  <!-- Bootstrap 4 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /***************************************************************************
+     * CSS Variables — matching al-folio theme (keyuwww.github.io)
+     ***************************************************************************/
+    :root {
+      --global-bg-color: #ffffff;
+      --global-code-bg-color: rgba(181, 9, 172, 0.05);
+      --global-text-color: #000000;
+      --global-text-color-light: #828282;
+      --global-theme-color: #B509AC;
+      --global-hover-color: #B509AC;
+      --global-footer-bg-color: #1C1C1D;
+      --global-footer-text-color: #e8e8e8;
+      --global-footer-link-color: #ffffff;
+      --global-divider-color: rgba(0,0,0,.1);
+      --global-card-bg-color: #ffffff;
+    }
+
+    /* Light mode icon visibility */
+    :root .fa-sun { display: none; }
+    :root .fa-moon { padding-left: 10px; padding-top: 12px; display: block; }
+
+    /* Dark mode */
+    html[data-theme="dark"] {
+      --global-bg-color: #1C1C1D;
+      --global-code-bg-color: #2c3237;
+      --global-text-color: #e8e8e8;
+      --global-text-color-light: #e8e8e8;
+      --global-theme-color: #2698BA;
+      --global-hover-color: #2698BA;
+      --global-footer-bg-color: #e8e8e8;
+      --global-footer-text-color: #1C1C1D;
+      --global-footer-link-color: #000000;
+      --global-divider-color: #424246;
+      --global-card-bg-color: #212529;
+    }
+    html[data-theme="dark"] .fa-sun { padding-left: 10px; padding-top: 12px; display: block; }
+    html[data-theme="dark"] .fa-moon { display: none; }
+
+    /* Smooth theme transition */
+    html.transition,
+    html.transition *,
+    html.transition *:before,
+    html.transition *:after {
+      transition: all 750ms !important;
+      transition-delay: 0 !important;
+    }
+
+    /***************************************************************************
+     * Base styles
+     ***************************************************************************/
+    body {
+      padding-bottom: 70px;
+      color: var(--global-text-color);
+      background-color: var(--global-bg-color);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      font-weight: 300;
+    }
+    body.fixed-top-nav {
+      padding-top: 56px;
+    }
+    body h1, body h2, body h3, body h4, body h5, body h6 {
+      scroll-margin-top: 66px;
+    }
+
+    .container {
+      max-width: 800px;
+    }
+
+    p, h1, h2, h3, h4, h5, h6, em, div, li, span, strong {
+      color: var(--global-text-color);
+    }
+
+    h2 { font-size: 1.6rem; }
+    p  { font-size: 0.92rem; }
+    ul { font-size: 0.92rem; }
+    strong { font-weight: bold; }
+
+    hr {
+      border-top: 1px solid var(--global-divider-color);
+    }
+
+    a, table.table a {
+      color: var(--global-theme-color);
+    }
+    a:hover, table.table a:hover {
+      color: var(--global-theme-color);
+      text-decoration: underline;
+    }
+
+    table td, table th {
+      color: var(--global-text-color);
+    }
+    table td {
+      font-size: 1rem;
+    }
+
+    /***************************************************************************
+     * Navbar
+     ***************************************************************************/
+    .navbar {
+      box-shadow: none;
+      border-bottom: 1px solid var(--global-divider-color);
+      background-color: var(--global-bg-color);
+      opacity: 0.95;
+    }
+    .navbar .dropdown-menu {
+      background-color: var(--global-bg-color);
+      border: 1px solid var(--global-divider-color);
+    }
+    .navbar.navbar-light a:hover {
+      text-decoration: none;
+    }
+    .navbar.navbar-light .navbar-brand {
+      color: var(--global-text-color);
+    }
+    .navbar.navbar-light .navbar-nav .nav-item .nav-link {
+      color: var(--global-text-color);
+    }
+    .navbar.navbar-light .navbar-nav .nav-item .nav-link:hover {
+      color: var(--global-hover-color);
+    }
+    .navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
+      background-color: inherit;
+      font-weight: bolder;
+      color: var(--global-theme-color);
+    }
+    .navbar.navbar-light .navbar-nav .nav-item.active > .nav-link:hover {
+      color: var(--global-hover-color);
+    }
+
+    .navbar-toggler .icon-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background-color: var(--global-text-color);
+      border-radius: 1px;
+      margin-bottom: 4px;
+      transition: all 0.2s;
+    }
+    .navbar-toggler .top-bar {
+      transform: rotate(45deg);
+      transform-origin: 10% 10%;
+    }
+    .navbar-toggler .middle-bar {
+      opacity: 0;
+    }
+    .navbar-toggler .bottom-bar {
+      transform: rotate(-45deg);
+      transform-origin: 10% 90%;
+    }
+    .navbar-toggler.collapsed .top-bar {
+      transform: rotate(0);
+    }
+    .navbar-toggler.collapsed .middle-bar {
+      opacity: 1;
+    }
+    .navbar-toggler.collapsed .bottom-bar {
+      transform: rotate(0);
+    }
+
+    /* Theme toggle button */
+    #theme-toggle {
+      padding: 0;
+      border: 0;
+      background-color: inherit;
+      color: var(--global-text-color);
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    #theme-toggle:hover {
+      color: var(--global-hover-color);
+    }
+
+    /***************************************************************************
+     * Profile / About
+     ***************************************************************************/
+    .profile {
+      width: 100%;
+    }
+    .profile img {
+      width: 100%;
+    }
+    .profile .address {
+      margin-bottom: 5px;
+      margin-top: 5px;
+      font-family: monospace;
+    }
+    .profile .address p {
+      display: inline-block;
+      margin: 0;
+    }
+    .profile.float-right {
+      margin-left: 1rem;
+    }
+    @media (min-width: 576px) {
+      .profile {
+        width: 30%;
+      }
+      .profile .address p {
+        display: block;
+      }
+    }
+
+    /***************************************************************************
+     * Social icons
+     ***************************************************************************/
+    .social {
+      text-align: center;
+    }
+    .social .contact-icons {
+      font-size: 2rem;
+    }
+    .social .contact-icons a i::before {
+      color: var(--global-text-color);
+      transition: all 0.2s ease-in-out;
+    }
+    .social .contact-icons a:hover i::before {
+      color: var(--global-theme-color);
+    }
+    .social .contact-note {
+      font-size: 0.8rem;
+    }
+
+    /***************************************************************************
+     * Cards
+     ***************************************************************************/
+    .card {
+      background-color: var(--global-card-bg-color);
+    }
+    .card img {
+      width: 100%;
+    }
+    .card .card-title {
+      color: var(--global-text-color);
+    }
+
+    /***************************************************************************
+     * Custom sections — projects, misc (matching al-folio)
+     ***************************************************************************/
+    .custom_projects {
+      text-align: left;
+      line-height: 1.25rem;
+    }
+    .custom_projects br { line-height: 100%; }
+    .custom_projects h1 { font-size: 3rem; }
+    .custom_projects h2 { font-size: 1.6rem; }
+    .custom_projects h6 { font-size: 1rem; }
+    .custom_projects p  { font-size: 0.92rem; }
+    .custom_projects p1 { font-size: 0.87rem; }
+
+    .misc {
+      line-height: 1.25rem;
+    }
+    .misc br { line-height: 100%; }
+    .misc h1 { font-size: 3rem; }
+    .misc h2 { font-size: 1.6rem; }
+    .misc h6 { font-size: 1rem; }
+    .misc p  { font-size: 0.92rem; }
+
+    /***************************************************************************
+     * Footer
+     ***************************************************************************/
+    footer.fixed-bottom {
+      background-color: var(--global-footer-bg-color);
+      font-size: 0.75rem;
+    }
+    footer.fixed-bottom .container {
+      color: var(--global-footer-text-color);
+      padding-top: 9px;
+      padding-bottom: 8px;
+      text-align: center;
+    }
+    footer.fixed-bottom .container span {
+      color: var(--global-footer-text-color);
+    }
+    footer.fixed-bottom a {
+      color: var(--global-footer-link-color);
+    }
+    footer.fixed-bottom a:hover {
+      color: var(--global-theme-color);
+      text-decoration: none;
+    }
+
+    /***************************************************************************
+     * Section heading styles (like the target)
+     ***************************************************************************/
+    .section-heading {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      color: var(--global-text-color);
+    }
+
+    /***************************************************************************
+     * Experience / Education table styles (matching target)
+     ***************************************************************************/
+    .entry-table {
+      padding-top: 30px;
+      width: 100%;
+      border: 0;
+      border-spacing: 0;
+      border-collapse: separate;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .entry-table td {
+      vertical-align: middle;
+      color: var(--global-text-color);
+    }
+    .entry-table .logo-cell {
+      padding-right: 20px;
+      width: 25%;
+      vertical-align: middle;
+    }
+    .entry-table .logo-cell img {
+      width: 160px;
+      height: 140px;
+      object-fit: contain;
+    }
+    .entry-table .content-cell {
+      width: 75%;
+      vertical-align: middle;
+    }
+    .entry-table .content-cell p {
+      font-size: 0.92rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /***************************************************************************
+     * Interests cards (3 in a row, matching target)
+     ***************************************************************************/
+    .interests-grid {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .interests-grid .interest-card {
+      flex: 1;
+      min-width: 200px;
+    }
+    .interests-grid .interest-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+    .interests-grid .interest-card .interest-title {
+      text-align: center;
+      font-size: 0.95rem;
+      margin-top: 0.6rem;
+      margin-bottom: 0.4rem;
+    }
+    .interests-grid .interest-card p {
+      font-size: 0.87rem;
+      margin-top: 0;
+    }
+    .interests-grid .interest-card strong {
+      font-size: 0.92rem;
+    }
+
+    /***************************************************************************
+     * Skills section
+     ***************************************************************************/
+    .skills-section ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .skills-section li {
+      font-size: 0.92rem;
+      margin-bottom: 0.15rem;
+    }
+    .skills-category {
+      margin-bottom: 0.8rem;
+    }
+    .skills-category strong {
+      font-size: 0.95rem;
+    }
+
+    /***************************************************************************
+     * Post description (subtitle line under name)
+     ***************************************************************************/
+    .post-description {
+      margin-bottom: 2rem;
+      font-size: 0.875rem;
+    }
+    .post-description a {
+      color: inherit;
+    }
+    .post-description a:hover {
+      color: var(--global-theme-color);
+      text-decoration: none;
+    }
+
+    /***************************************************************************
+     * Scroll progress bar
+     ***************************************************************************/
+    progress {
+      position: fixed;
+      left: 0;
+      top: 56px;
+      z-index: 10;
+      width: 100%;
+      height: 1px;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: none;
+      background-color: transparent;
+      color: var(--global-theme-color);
+    }
+    progress::-webkit-progress-bar {
+      background-color: transparent;
+    }
+    progress::-webkit-progress-value {
+      background-color: var(--global-theme-color);
+    }
+    progress::-moz-progress-bar {
+      background-color: var(--global-theme-color);
+    }
+
+    /***************************************************************************
+     * Responsive adjustments
+     ***************************************************************************/
+    @media (max-width: 576px) {
+      .entry-table .logo-cell {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding-right: 0;
+        padding-bottom: 15px;
+      }
+      .entry-table .content-cell {
+        display: block;
+        width: 100%;
+      }
+      .entry-table tr {
+        display: block;
+      }
+      .interests-grid {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body class="fixed-top-nav">
+
+  <!-- ==================== NAVBAR ==================== -->
+  <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
+    <div class="container">
+      <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+      <div class="collapse navbar-collapse text-right" id="navbarNav">
+        <ul class="navbar-nav ml-auto flex-nowrap">
+          <li class="nav-item active" data-section="about">
+            <a class="nav-link" href="#about">about</a>
+          </li>
+          <li class="nav-item" data-section="education">
+            <a class="nav-link" href="#education">education</a>
+          </li>
+          <li class="nav-item" data-section="highlights">
+            <a class="nav-link" href="#highlights">skills</a>
+          </li>
+          <li class="nav-item" data-section="projects">
+            <a class="nav-link" href="#projects">projects</a>
+          </li>
+          <li class="nav-item" data-section="experience">
+            <a class="nav-link" href="#experience">experience</a>
+          </li>
+          <li class="nav-item" data-section="interests">
+            <a class="nav-link" href="#interests">interests</a>
+          </li>
+          <li class="nav-item">
+            <button id="theme-toggle" title="Change theme" onclick="toggleTheme()">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Scroll progress bar -->
+  <progress id="scroll-progress" value="0" max="100"></progress>
+
+  <!-- ==================== ABOUT ==================== -->
+  <div class="container mt-5" id="about">
+    <div class="post">
+      <header class="post-header">
+        <h1 class="post-title">
+          Siqi Liu
+        </h1>
+        </header>
+
+      <article>
+        <div class="profile float-right">
+          <img class="img-fluid z-depth-1 rounded" src="assets/img/profile_placeholder.png" alt="Siqi Liu profile photo">
+        </div>
+
+        <div class="clearfix">
+          <p>
+            Hi! I am a U2 neuroscience undergraduate student at <a href="https://www.mcgill.ca/" target="_blank" rel="noopener">McGill University</a>. I've been volunteering at the <a href="https://poulin.lab.mcgill.ca/" target="_blank" rel="noopener">Poulin Lab</a> since 2025 summer, we are researching on dopaminergic neural circuits and how they are impaired in neurodevelopmental and neurodegenerative diseases.
+            The two projects I was involved in are listed below.
+
+          </p>
+          <p>
+            Beside studying and researching, I enjoy playing badminton and tennis, drawing (digitally and physically) as well as travelling.
+          </p>
+        </div>
+
+
+        <!-- Social Icons -->
+        <div class="social">
+          <div class="contact-icons">
+            <a href="mailto:Louiselsq567@outlook.com" title="Email"><i class="fas fa-envelope"></i></a>
+            <a href="https://www.linkedin.com/in/siqi-louise-liu64777/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Siqi4766" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <hr>
+
+    <!-- ==================== EDUCATION ==================== -->
+    <div id="education">
+      <h2 class="section-heading">education</h2>
+
+      <table class="entry-table">
+        <tbody>
+          <tr>
+            <td class="logo-cell">
+              <img src="assets/img/logo.png" alt="McGill University" width="160" height="140">
+            </td>
+            <td class="content-cell">
+              <p>
+                <strong>McGill University</strong>
+                <br>
+                <a href="https://www.mcgill.ca/neuroscience/" target="_blank" rel="noopener">B.Sc in Neuroscience</a> | Aug 2024 – May 2028 (expected)
+                <br>
+                Montreal, QC, Canada
+                <br>
+                <strong>GPA:</strong> 4.0/4.0
+                <br>
+                <strong>Awards:</strong> 2024-2025 Dean's Honour List, Faculty of Science
+                <br>
+                <strong>Relevant courses:</strong> Molecular Biology | Organic Chemistry | Calculus | Statistics | Python Programming | Neurophysiology | Neuroanatomy | Cognition | Cell Biology and Metabolism | Mechanics &amp; Electromagnetism | Beginner French
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <!-- ==================== HIGHLIGHTING SKILLS ==================== -->
+    <div id="highlights">
+      <h2 class="section-heading">highlighting skills</h2>
+
+      <div class="skills-section">
+        <div class="skills-category">
+          <strong>Wet Lab</strong>
+          <ul>
+            <li>Intersectional Genetics | Behavioural Assay | Genotyping | Mouse Handling &amp; Injection | Immunohistochemistry (IHC) | Cell Culture | FACS</li>
+          </ul>
+        </div>
+
+        <div class="skills-category">
+          <strong>Technical Skills</strong>
+          <ul>
+            <li>Programming Languages: Python (MatPlotLib, NumPy, PyTorch) | R</li>
+            <li>Software &amp; Tools: GitHub | Prism Graphpad | Snapgene | Microsoft Office</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- ==================== PROJECTS ==================== -->
+    <div id="projects" class="custom_projects">
+      <h2 class="section-heading">projects</h2>
+
+      <!-- Project 1: Calbindin -->
+      <table class="entry-table">
+        <tbody>
+          <tr>
+            <td class="logo-cell">
+              <div style="width:160px;height:140px;display:flex;align-items:center;justify-content:center;font-size:4rem;background:var(--global-card-bg-color);border-radius:6px;">🧠</div>
+            </td>
+            <td class="content-cell">
+              <p>
+                <strong>Calbindin Stratifies Midbrain Dopaminergic Neurons Governing Distinct Aspects of Locomotion</strong>
+                <br>
+                Under review in <em>Neuron</em> &amp; <em>PNAS</em>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Project 2: Brain-wide mapping -->
+      <table class="entry-table">
+        <tbody>
+          <tr>
+            <td class="logo-cell">
+              <img src="assets/img/singlet.png" alt="SINGLET sparse labeling" width="160" height="140">
+            </td>
+            <td class="content-cell">
+              <p>
+                <strong>Brain-wide mapping of dopaminergic neuron morphology at single-cell resolution via sparse labeling</strong>
+                <br>
+                <a href="https://www.mcgill.ca/ose/files/ose/v4_-_siqi.pdf" target="_blank" rel="noopener">Poster</a>
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <!-- ==================== EXPERIENCE ==================== -->
+    <div id="experience">
+      <h2 class="section-heading">experience</h2>
+
+      <table class="entry-table">
+        <tbody>
+          <tr>
+            <td class="logo-cell">
+              <img src="assets/img/neuro_logo.png" alt="Montreal Neurological Institute" width="160" height="140">
+            </td>
+            <td class="content-cell">
+              <p>
+                <strong>Research Intern at Poulin Lab</strong>
+                <br>
+                <a href="https://www.mcgill.ca/neuro/" target="_blank" rel="noopener">Montreal Neurological Institute-Hospital</a> | May 2025 – Present
+                <br><br>
+                <strong>Topics:</strong> Dopamine neural circuit, neurodegenerative disorder, neurodevelopmental disorder
+                <br><br>
+                Researched on the roles of CALB1 expression in specialized dopaminergic subsystems. As well as training AI to recognize sparsely labeled neurons in lightsheet images.
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <!-- ==================== INTERESTS ==================== -->
+    <div id="interests" class="misc">
+      <h2 class="section-heading">interests/ hobbies</h2>
+
+      <div class="interests-grid">
+        <!-- Tennis -->
+        <div class="interest-card">
+          <img src="assets/img/tennis.jpg" alt="Tennis">
+          <div class="interest-title"><strong>Tennis</strong></div>
+          <p>
+            I'm an amateur tennis player. I enjoy the sweating after a long playing session, and it helps me to destress too! (My striking moment in the photo)
+          </p>
+        </div>
+
+        <!-- Painting -->
+        <div class="interest-card">
+          <img src="assets/img/art.jpg" alt="Starry Night painting">
+          <div class="interest-title"><strong>Painting</strong></div>
+          <p>
+            I do both physical &amp; digital painting (digital more often now..). Opening a brand new canva just make me enter my own creative realm. Above is an oil painting I did a while ago, a copy of Vincent van Gogh's <em>The Starry Night</em>, isn't it nice and calm~
+          </p>
+        </div>
+
+        <!-- Travelling -->
+        <div class="interest-card">
+          <img src="assets/img/travel.jpg" alt="Travelling scenery">
+          <div class="interest-title"><strong>Travelling</strong></div>
+          <p>
+            I quite enjoy exploring new places, cultures, and most importantly..food! It's always fun to see what's going on outside of the hometown, just like me now, studying aboard :)
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end .container -->
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="fixed-bottom">
+    <div class="container mt-0">
+      &copy; Copyright <span id="footer-year"></span> Siqi Liu. Last updated: <span id="footer-date"></span>.
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // ======== Footer date ========
+    (function() {
+      var now = new Date();
+      var months = ["January","February","March","April","May","June",
+                    "July","August","September","October","November","December"];
+      document.getElementById('footer-year').textContent = now.getFullYear();
+      document.getElementById('footer-date').textContent =
+        months[now.getMonth()] + " " + now.getDate() + ", " + now.getFullYear();
+    })();
+
+    // ======== Dark / Light mode toggle ========
+    function toggleTheme() {
+      var html = document.documentElement;
+      html.classList.add('transition');
+      if (html.getAttribute('data-theme') === 'dark') {
+        html.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        html.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      // Remove transition class after animation completes
+      setTimeout(function() {
+        html.classList.remove('transition');
+      }, 800);
+    }
+
+    // Restore theme from localStorage
+    (function() {
+      var saved = localStorage.getItem('theme');
+      if (saved === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+
+    // ======== Active nav link on scroll ========
+    (function() {
+      var sections = document.querySelectorAll('[id]');
+      var navItems = document.querySelectorAll('.nav-item[data-section]');
+
+      function setActiveNav() {
+        var scrollPos = window.scrollY + 80;
+        var currentSection = '';
+
+        sections.forEach(function(section) {
+          if (section.offsetTop <= scrollPos) {
+            currentSection = section.getAttribute('id');
+          }
+        });
+
+        navItems.forEach(function(item) {
+          item.classList.remove('active');
+          if (item.getAttribute('data-section') === currentSection) {
+            item.classList.add('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', setActiveNav);
+      setActiveNav();
+    })();
+
+    // ======== Smooth scroll for nav links ========
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // ======== Scroll progress bar ========
+    (function() {
+      var progressBar = document.getElementById('scroll-progress');
+      window.addEventListener('scroll', function() {
+        var scrollTop = window.scrollY;
+        var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        var scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.value = scrollPercent;
+      });
+    })();
+  </script>
+
+</body>
+</html>
