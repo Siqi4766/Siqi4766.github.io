@@ -1,0 +1,58 @@
+BRAIN-WIDE MAPPING OF DOPAMINERGIC NEURON MORPHOLOGY 
+AT SINGLE-CELL RESOLUTION VIA SPARSE LABELING
+Siqi Liu1, Cyril Bolduc1, Duncan Spencer1, Jean-François Poulin1 
+1 Montreal Neurological Institute-Hospital, McGill University, Montreal, Quebec, Canada
+BACKGROUND
+ Dopamine is a neurotransmitter produced in the brain that drives the reward system,
+motivation, and movements.
+ The majority of dopaminergic neurons are located in the substantia nigra pars compacta
+(SNc) and ventral tegmental area (VTA), projecting to the prefrontal cortex, amygdala and
+basal ganglia.
+ Recently, molecularly distinct dopaminergic neuron subtypes were identified, however the
+precise morphology and projection pattern for each subtype is poorly understood.
+ Hence, we designed a new AA V (Adeno-associated virus) labeling strategy, Single-cell
+INtersectional Genetic Labelling Enhanced by tTA (SINGLET), to sparsely label DA neurons at
+single-cell resolution to assess their morphology and projection.
+METHODS
+ Our SINGLET strategy involves two distinct AA Vvectors, named controller and amplifier, which
+are stereotaxically injected into the brain of transgenic mice (proof of concept in Vglut2-Cre/Dat-
+2A-Flpo).
+ We designed two versions of the controller: vCre CreOFF/FlpON and vCre CreON/FlpON. In the vCre
+CreOFF/FlpON construct, vCre recombinases will only be expressed in vGlut2- DA neurons. In the
+vCre CreON/FlpON construct, vCre recombinases will only be expressed in vGlut2+ DA neurons.
+ Diluted AA V-CreON/FlpON-vCre viruses were injected into vGlut2-Cre;Dat-2A-Flpo mice. Leakage
+of TRE (Tetracycline Inducible Expression) promoter in few cells drove the expression of vCre.
+Then, vCre-driven recombination allowed mScarlet to be expressed in correct orientation in the
+amplifier. The tTA (Tetracycline-controlled Transactivator) further enhanced the activation of
+TRE leading to high expression of the mScarlet reporter in a few DA neurons.
+ 3-4 weeks after viral injection. Perfused the mouse brain with PBS and PFA4%. Then the brain was
+stored in PFA4% overnight before going to brain clearing. The goal of PFA is to fix the tissue to
+preserve its structure and prevent its degradation.
+ After the perfusion, the brain was cleared with EZclear protocol.
+ Lightsheet imaging of the whole brain (horizontal optical sectioning of 3um per image)
+ Train an AI to recognize mScarlet positive neurons and apply the AI to every single image
+Single-cell INtersectional Genetic Labelling Enhanced by tTA (SINGLET)
+RESULTS
+CONCLUSIONS AND FURURE PERSPECTIVES
+ Overall, the SINGLET was able to sparsely label vGlut2+ DA neurons, and the AI was successful at
+recognizing them. This demonstrates that SINGLET can be applied to label any neuronal
+populations within Cre and Flp transgenic mice.
+ In the future, we could develop a pipeline to transform every plane into binary images and
+reconstruct them in 3 dimensions.
+REFERENCES
+Lin, R., Wang, R., Yuan, J., Feng, Q., Zhou, Y., Zeng, S., Ren, M., Jiang, S., Ni, H., Zhou, C., Gong, H., & Luo, M. (2018). Cell-type-specific and 
+projection-specific brain-wide reconstruction of single neurons.Nature Methods, 15(12), 1033–1036. https://doi.org/10.1038/s41592-
+018-0184-y
+ACKNOWLEDGEMENTS
+I would like to thank Cyril Bolduc, a PhD candidate in the Integrated Program in Neuroscience at McGill 
+University, for giving me the opportunity to work alongside this project and providing me with mentoring and 
+support. I would also like to thank Duncan Spencer for taking care of the mice colony, as well as the principal 
+investigator of our lab, Jean-François Poulin for taking me on as an undergraduate volunteer. 
+ As a proof of concept, we sparsely labeled vGlut2+ DA neuron cell bodies in midbrain (viewed in
+Imaris).
+ Labeled vGlut2+ DA neurons for training AI using the NIS-Elements software. Noticed that they
+originate from the midbrain and project to striatum.
+ventromedial 
+striatum
+ventral segment of the 
+striatum tail
