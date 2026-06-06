@@ -326,9 +326,11 @@
       vertical-align: middle;
     }
     .entry-table .logo-cell img {
-      width: 160px;
-      height: 140px;
-      object-fit: contain;
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      object-fit: contain !important;
+      display: block;
     }
     .entry-table .content-cell {
       width: 75%;
@@ -680,7 +682,7 @@
         <tbody>
           <tr>
             <td class="logo-cell">
-              <img src="RNN_LSTM.png" alt="Music Generation with RNN" width="160" height="140" style="object-fit: cover;">
+              <img src="RNN_LSTM.png" alt="Music Generation with RNN" width="160" height="140" style="object-fit: contain;">
             </td>
             <td class="content-cell">
               <p>
@@ -691,6 +693,28 @@
                 <strong>Topics:</strong> Recurrent Neural Network (RNN) | Long Short-Term Memory (LSTM)
                 <br><br>
                 This project trains a PyTorch LSTM model for music generation. The model learns from Irish folk songs written in ABC notation by treating music as a character sequence and training on a next-character prediction task. After training with cross-entropy loss and the Adam optimizer, the model samples new ABC notation one character at a time, extracts valid generated song snippets, and converts them into .wav audio files. I adjusted the training parameters for my run, including 1000 training iterations, batch size 64, sequence length 300, learning rate 0.001, embedding dimension 256, and hidden size 1024.
+              </p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Project 4: fMRI -->
+      <table class="entry-table">
+        <tbody>
+          <tr>
+            <td class="logo-cell">
+              <img src="brain surface plot.png" alt="Mapping Brain Activation and Representation with fMRI" width="160" height="140" style="object-fit: contain;">
+            </td>
+            <td class="content-cell">
+              <p>
+                <strong>Mapping Brain Activation and Representation with fMRI</strong>
+                <br>
+                <a href="https://github.com/Siqi4766/Mapping-brain-activation-and-representation-with-fMRI" target="_blank" rel="noopener">Code</a>
+                <br><br>
+                <strong>Topics:</strong> fMRI | Generalized Linear Model (GLM) | Hemodynamic Response Modeling | Representational Similarity Analysis
+                <br><br>
+                In this project, I analyzed the Human Connectome Project motor task dataset. I first examined the condition specific activation patterns across cortical parcels, and performed statistical tests to identify significant task related modulation, and then constructed GLM to model task related BOLD activity. Next, I implemented a double-gamma Hemodynamic Response Function (HRF) to account for the delayed vascular response measured by fMRI. Finally, I used Representational Similarity Analysis to quantify similarities and differences between neural representations associated with different motor conditions. Together, these analyses illustrated core concepts in task based fMRI, including activation mapping, statistical inference, hemodynamic response modeling, and representational analysis.
               </p>
             </td>
           </tr>
