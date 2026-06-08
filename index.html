@@ -25,11 +25,9 @@
       --global-card-bg-color: #ffffff;
     }
 
-    /* Light mode icon visibility */
     :root .fa-sun { display: none; }
     :root .fa-moon { padding-left: 10px; padding-top: 12px; display: block; }
 
-    /* Dark mode */
     html[data-theme="dark"] {
       --global-bg-color: #1C1C1D;
       --global-code-bg-color: #2c3237;
@@ -46,7 +44,6 @@
     html[data-theme="dark"] .fa-sun { padding-left: 10px; padding-top: 12px; display: block; }
     html[data-theme="dark"] .fa-moon { display: none; }
 
-    /* Smooth theme transition */
     html.transition,
     html.transition *,
     html.transition *:before,
@@ -55,9 +52,7 @@
       transition-delay: 0 !important;
     }
 
-    /***************************************************************************
-     * Base styles
-     ***************************************************************************/
+
     body {
       padding-bottom: 70px;
       color: var(--global-text-color);
@@ -104,9 +99,7 @@
       font-size: 1rem;
     }
 
-    /***************************************************************************
-     * Navbar
-     ***************************************************************************/
+
     .navbar {
       box-shadow: none;
       border-bottom: 1px solid var(--global-divider-color);
@@ -168,7 +161,6 @@
       transform: rotate(0);
     }
 
-    /* Theme toggle button */
     #theme-toggle {
       padding: 0;
       border: 0;
@@ -181,9 +173,6 @@
       color: var(--global-hover-color);
     }
 
-    /***************************************************************************
-     * About
-     ***************************************************************************/
     .profile {
       width: 100%;
     }
@@ -212,9 +201,7 @@
       }
     }
 
-    /***************************************************************************
-     * Social icons
-     ***************************************************************************/
+
     .social {
       text-align: center;
     }
@@ -235,9 +222,7 @@
       font-size: 0.8rem;
     }
 
-    /***************************************************************************
-     * Cards
-     ***************************************************************************/
+
     .card {
       background-color: var(--global-card-bg-color);
     }
@@ -248,9 +233,7 @@
       color: var(--global-text-color);
     }
 
-    /***************************************************************************
-     * Custom sections — projects
-     ***************************************************************************/
+
     .custom_projects {
       text-align: left;
       line-height: 1.25rem;
@@ -271,9 +254,7 @@
     .misc h6 { font-size: 1rem; }
     .misc p  { font-size: 0.92rem; }
 
-    /***************************************************************************
-     * Footer
-     ***************************************************************************/
+
     footer.fixed-bottom {
       background-color: var(--global-footer-bg-color);
       font-size: 0.75rem;
@@ -295,18 +276,14 @@
       text-decoration: none;
     }
 
-    /***************************************************************************
-     * Section heading styles
-     ***************************************************************************/
+ 
     .section-heading {
       font-size: 1.6rem;
       margin-bottom: 1rem;
       color: var(--global-text-color);
     }
 
-    /***************************************************************************
-     * Experience / Education table styles
-     ***************************************************************************/
+
     .entry-table {
       padding-top: 30px;
       width: 100%;
@@ -341,9 +318,7 @@
       margin-bottom: 0.25rem;
     }
 
-    /***************************************************************************
-     * Interests cards
-     ***************************************************************************/
+
     .interests-grid {
       display: flex;
       gap: 20px;
@@ -374,9 +349,7 @@
       font-size: 0.92rem;
     }
 
-    /***************************************************************************
-     * Skills section
-     ***************************************************************************/
+
     .skills-section ul {
       padding-left: 1.2rem;
       margin-bottom: 0.5rem;
@@ -392,9 +365,7 @@
       font-size: 0.95rem;
     }
 
-    /***************************************************************************
-     * Post description (subtitle line under name)
-     ***************************************************************************/
+
     .post-description {
       margin-bottom: 2rem;
       font-size: 0.875rem;
@@ -407,9 +378,7 @@
       text-decoration: none;
     }
 
-    /***************************************************************************
-     * Scroll progress bar
-     ***************************************************************************/
+
     progress {
       position: fixed;
       left: 0;
@@ -434,9 +403,7 @@
       background-color: var(--global-theme-color);
     }
 
-    /***************************************************************************
-     * Responsive adjustments
-     ***************************************************************************/
+ 
     @media (max-width: 576px) {
       .entry-table .logo-cell {
         display: block;
@@ -461,7 +428,6 @@
 
 <body class="fixed-top-nav">
 
-  <!-- ==================== NAVBAR ==================== -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm fixed-top">
     <div class="container">
       <button class="navbar-toggler collapsed ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -503,10 +469,8 @@
     </div>
   </nav>
 
-  <!-- Scroll progress bar -->
   <progress id="scroll-progress" value="0" max="100"></progress>
 
-  <!-- ==================== ABOUT ==================== -->
   <div class="container mt-5" id="about">
     <div class="post">
       <header class="post-header">
@@ -531,7 +495,7 @@
         </div>
 
 
-        <!-- Social Icons -->
+      
         <div class="social">
           <div class="contact-icons">
             <a href="mailto:Louiselsq567@outlook.com" title="Email"><i class="fas fa-envelope"></i></a>
@@ -544,7 +508,7 @@
 
     <hr>
 
-    <!-- ==================== EDUCATION ==================== -->
+  
     <div id="education">
       <h2 class="section-heading">education</h2>
 
@@ -582,7 +546,6 @@
 
     <hr>
 
-    <!-- ==================== HIGHLIGHTING SKILLS ==================== -->
     <div id="highlights">
       <h2 class="section-heading">skills</h2>
 
@@ -607,7 +570,6 @@
 
     <hr>
 
-    <!-- ==================== CERTIFICATES ==================== -->
     <div id="certificates">
       <h2 class="section-heading">certificates</h2>
 
@@ -633,11 +595,9 @@
 
     <hr>
 
-    <!-- ==================== PROJECTS ==================== -->
     <div id="projects" class="custom_projects">
       <h2 class="section-heading">projects</h2>
 
-      <!-- Project 1: Calbindin -->
       <table class="entry-table">
         <tbody>
           <tr>
@@ -655,7 +615,6 @@
         </tbody>
       </table>
 
-      <!-- Project 2: Brain-wide mapping -->
       <table class="entry-table">
         <tbody>
           <tr>
@@ -677,29 +636,6 @@
         </tbody>
       </table>
 
-      <!-- Project 3: Music Generation with RNN -->
-      <table class="entry-table">
-        <tbody>
-          <tr>
-            <td class="logo-cell">
-              <img src="RNN_LSTM.png" alt="Music Generation with RNN" width="160" height="140" style="object-fit: contain;">
-            </td>
-            <td class="content-cell">
-              <p>
-                <strong>Music Generation with RNN</strong>
-                <br>
-                <a href="https://github.com/Siqi4766/Music-Generation-with-RNN" target="_blank" rel="noopener">Code</a>
-                <br><br>
-                <strong>Topics:</strong> Recurrent Neural Network (RNN) | Long Short-Term Memory (LSTM)
-                <br><br>
-                This project trains a PyTorch LSTM model for music generation. The model learns from Irish folk songs written in ABC notation by treating music as a character sequence and training on a next-character prediction task. After training with cross-entropy loss and the Adam optimizer, the model samples new ABC notation one character at a time, extracts valid generated song snippets, and converts them into .wav audio files. I adjusted the training parameters for my run, including 1000 training iterations, batch size 64, sequence length 300, learning rate 0.001, embedding dimension 256, and hidden size 1024.
-              </p>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-
-      <!-- Project 4: fMRI -->
       <table class="entry-table">
         <tbody>
           <tr>
@@ -724,7 +660,6 @@
 
     <hr>
 
-    <!-- ==================== EXPERIENCE ==================== -->
     <div id="experience">
       <h2 class="section-heading">experience</h2>
 
@@ -790,7 +725,6 @@
 
     <hr>
 
-    <!-- ==================== INTERESTS ==================== -->
     <div id="interests" class="misc">
       <h2 class="section-heading">interests</h2>
 
@@ -824,22 +758,19 @@
       </div>
     </div>
 
-  </div><!-- end .container -->
+  </div>
 
-  <!-- ==================== FOOTER ==================== -->
   <footer class="fixed-bottom">
     <div class="container mt-0">
       &copy; Copyright 2026 Siqi Liu. Last updated: June 6, 2026.
     </div>
   </footer>
 
-  <!-- Bootstrap JS dependencies -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
 
-    // ======== Dark / Light mode toggle ========
     function toggleTheme() {
       var html = document.documentElement;
       html.classList.add('transition');
@@ -850,13 +781,11 @@
         html.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
       }
-      // Remove transition class after animation completes
       setTimeout(function() {
         html.classList.remove('transition');
       }, 800);
     }
 
-    // Restore theme from localStorage
     (function() {
       var saved = localStorage.getItem('theme');
       if (saved === 'dark') {
@@ -864,7 +793,6 @@
       }
     })();
 
-    // ======== Active nav link on scroll ========
     (function() {
       var sections = document.querySelectorAll('[id]');
       var navItems = document.querySelectorAll('.nav-item[data-section]');
@@ -891,7 +819,6 @@
       setActiveNav();
     })();
 
-    // ======== Smooth scroll for nav links ========
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -902,7 +829,6 @@
       });
     });
 
-    // ======== Scroll progress bar ========
     (function() {
       var progressBar = document.getElementById('scroll-progress');
       window.addEventListener('scroll', function() {
