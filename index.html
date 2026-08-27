@@ -211,9 +211,23 @@
       justify-content: center;
       gap: 1.5rem;
     }
+    .social .contact-icons a {
+      color: var(--global-text-color);
+      line-height: 1;
+      transition: all 0.2s ease-in-out;
+    }
     .social .contact-icons a i::before {
       color: var(--global-text-color);
       transition: all 0.2s ease-in-out;
+    }
+    .social .contact-icons a svg {
+      width: 1em;
+      height: 1em;
+      fill: currentColor;
+      vertical-align: -0.1em;
+    }
+    .social .contact-icons a:hover {
+      color: var(--global-theme-color);
     }
     .social .contact-icons a:hover i::before {
       color: var(--global-theme-color);
@@ -513,6 +527,17 @@
             <a href="mailto:Louiselsq567@outlook.com" title="Email"><i class="fas fa-envelope"></i></a>
             <a href="https://www.linkedin.com/in/siqi-louise-liu64777/" target="_blank" rel="noopener" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/Siqi4766" target="_blank" rel="noopener" title="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://scholar.google.ca/citations?hl=en&user=4S88VY0AAAAJ" target="_blank" rel="noopener" title="Google Scholar" aria-label="Google Scholar">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3Zm0 14L5 13.18v3.64L12 21l7-4.18v-3.64L12 17Z"></path>
+              </svg>
+            </a>
+            <a href="https://orcid.org/0009-0006-9338-2280" target="_blank" rel="noopener" title="ORCID" aria-label="ORCID">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"></circle>
+                <text x="12" y="15.2" text-anchor="middle" font-family="Arial, sans-serif" font-size="8.2" font-weight="700" fill="var(--global-bg-color)">iD</text>
+              </svg>
+            </a>
           </div>
         </div>
       </article>
@@ -620,7 +645,7 @@
               <p>
                 <strong>Calbindin Stratifies Midbrain Dopaminergic Neurons Governing Distinct Aspects of Locomotion</strong>
                 <br>
-                Under review in <em>Neuron</em> and <em>PNAS</em> | <a href="https://dopaminesociety.org/wp-content/uploads/2026/05/Poster-Abstract-Book-3.pdf" target="_blank" rel="noopener">Conference Abstract (P2-67)</a> | <a href="https://dopaminesociety.org/wp-content/uploads/2026/05/Detailed-Progam-for-Website-v4.pdf" target="_blank" rel="noopener">Conference Poster (17.3)</a>
+                <a href="https://www.pnas.org/doi/10.1073/pnas.2613593123" target="_blank" rel="noopener">Paper</a> | <a href="https://dopaminesociety.org/wp-content/uploads/2026/05/Poster-Abstract-Book-3.pdf" target="_blank" rel="noopener">Conference Abstract (P2-67)</a> | <a href="https://dopaminesociety.org/wp-content/uploads/2026/05/Detailed-Progam-for-Website-v4.pdf" target="_blank" rel="noopener">Conference Poster (17.3)</a>
               </p>
             </td>
           </tr>
@@ -852,7 +877,7 @@
 
   <footer class="fixed-bottom">
     <div class="container mt-0">
-      &copy; Copyright 2026 Siqi Liu. Last updated: July 25, 2026.
+      &copy; Copyright 2026 Siqi Liu. Last updated: August 27, 2026.
     </div>
   </footer>
 
